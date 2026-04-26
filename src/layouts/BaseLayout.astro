@@ -91,6 +91,7 @@ const pathname = Astro.url.pathname;
       <li><a href="/#about" class:list={[{ 'is-active': pathname === '/' }]}>About</a></li>
       <li><a href="/gallery" class:list={[{ 'is-active': pathname === '/gallery' }]}>Gallery</a></li>
       <li><a href="/shop" class:list={[{ 'is-active': pathname === '/shop' }]}>Shop</a></li>
+      <li><a href="/custom-order" class:list={[{ 'is-active': pathname === '/custom-order' }]}>Custom Order</a></li>
       <li><a href="/contact" class:list={[{ 'is-active': pathname === '/contact' }]}>Contact</a></li>
     </ul>
 
@@ -105,6 +106,7 @@ const pathname = Astro.url.pathname;
           <a href="/#about">About</a>
           <a href="/gallery">Gallery</a>
           <a href="/shop">Shop</a>
+          <a href="/custom-order">Custom Order</a>
           <a href="/contact">Contact</a>
         </nav>
         <p class="footer__copy">© {currentYear} {site.siteName} · {site.businessLocation}</p>

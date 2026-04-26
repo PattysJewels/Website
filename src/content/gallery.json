@@ -1,7 +1,7 @@
 {
   "eyebrow": "Handcrafted collection",
   "title": "Jewelry Gallery",
-  "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (Placeholder images — real photos coming soon.)",
+  "intro": "Browse Patty's handcrafted pieces — bracelets, necklaces, earrings, and more. Every item here is a sample. Each one can be remade to your size, your length, and your style.",
   "categories": [
     { "slug": "all", "label": "All Pieces" },
     { "slug": "bracelets", "label": "Bracelets" },

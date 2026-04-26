@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import content from '../content/custom-order.json';
+
+const { eyebrow, title, intro, charts, form } = content;
+const { sections } = form;
+const placeholder = form.selectPlaceholder;
+---
+
+<BaseLayout title={`${title} - Patty's Jewels`} description={intro}>
+  <section class="custom-order-page">
+    <div class="wrapper">
+
+      <header class="custom-order-page__intro">
+        <p class="label label--center">{eyebrow}</p>
+        <h1 class="section-title">{title}</h1>
+        <div class="gold-rule"></div>
+        <p class="section-sub">{intro}</p>
+      </header>
+
+      <div class="chart-grid">
+        {charts.map((chart) => (
+          <figure
+            class:list={['chart-figure', { 'chart-figure--wide': chart.id === 'necklace-length' }]}
+            id={chart.id}
+          >
+            <figcaption class="chart-figure__title">{chart.title}</figcaption>
+            <img src={chart.image} alt={chart.title} loading="lazy" />
+            <p class="chart-figure__caption">{chart.caption}</p>
+          </figure>
+        ))}
+      </div>
+
+      <div class="custom-order-page__form-wrap">
+        <h2 class="custom-order-page__form-heading">Ready to order? Fill this out.</h2>
+
+        <form
+          class="order-form"
+          name={form.name}
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value={form.name} />
+          <input type="hidden" name="bot-field" />
+
+          <fieldset class="order-form__section">
+            <legend class="order-form__legend">{sections.contactInfo.legend}</legend>
+            <div class="form-grid form-grid--double">
+              <label class="form-field">
+                <span>{sections.contactInfo.fields.fullName}</span>
+                <input type="text" name="full_name" autocomplete="name" required />
+              </label>
+              <label class="form-field">
+                <span>{sections.contactInfo.fields.email}</span>
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+              <label class="form-field">
+                <span>{sections.contactInfo.fields.phone}</span>
+                <input type="tel" name="phone_number" autocomplete="tel" />
+              </label>
+            </div>
+            <div class="form-choice">
+              <p>{sections.contactInfo.fields.preferredContact}</p>
+              <div class="choice-grid">
+                {sections.contactInfo.fields.preferredContactOptions.map((option, i) => (
+                  <label>
+                    <input
+                      type="radio"
+                      name="preferred_contact_method"
+                      value={option}
+                      required={i === 0}
+                    />
+                    {option}
+                  </label>
+                ))}
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="order-form__section">
+            <legend class="order-form__legend">{sections.pieceDetails.legend}</legend>
+            <div class="form-grid form-grid--double">
+              <label class="form-field">
+                <span>{sections.pieceDetails.pieceTypeLabel}</span>
+                <select name="piece_type" required>
+                  <option value="">{placeholder}</option>
+                  {sections.pieceDetails.pieceTypeOptions.map((o) => (
+                    <option value={o}>{o}</option>
+                  ))}
+                </select>
+              </label>
+              <label class="form-field">
+                <span>{sections.pieceDetails.quantityLabel}</span>
+                <select name="quantity" required>
+                  <option value="">{placeholder}</option>
+                  {sections.pieceDetails.quantityOptions.map((o) => (
+                    <option value={o}>{o}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="order-form__section">
+            <legend class="order-form__legend">{sections.customization.legend}</legend>
+            <div class="form-grid form-grid--double">
+
+              <label class="form-field">
+                <span>{sections.customization.earringHookLabel}</span>
+                <select name="earring_hook_style">
+                  <option value="">{placeholder}</option>
+                  {sections.customization.earringHookOptions.map((o) => (
+                    <option value={o}>{o}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label class="form-field">
+                <span>{sections.customization.charmLabel}</span>
+                <select name="charm_pendant">
+                  <option value="">{placeholder}</option>
+                  {sections.customization.charmOptions.map((o) => (
+                    <option value={o}>{o}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label class="form-field">
+                <span>{sections.customization.claspLabel}</span>
+                <select name="necklace_clasp">
+                  <option value="">{placeholder}</option>
+                  {sections.customization.claspOptions.map((o) => (
+                    <option value={o}>{o}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label class="form-field">
+                <span>{sections.customization.necklaceLengthLabel}</span>
+                <select name="necklace_length">
+                  <option value="">{placeholder}</option>
+                  {sections.customization.necklaceLengthOptions.map((o) => (
+                    <option value={o}>{o}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label class="form-field">
+                <span>{sections.customization.braceletSizeLabel}</span>
+                <select name="bracelet_size">
+                  <option value="">{placeholder}</option>
+                  {sections.customization.braceletSizeOptions.map((o) => (
+                    <option value={o}>{o}</option>
+                  ))}
+                </select>
+              </label>
+
+              <div class="form-field form-field--full">
+                <span class="form-field__label">{sections.customization.metalLabel}</span>
+                <p class="form-field__note">{sections.customization.metalNote}</p>
+                <select name="metal_finish">
+                  <option value="">{placeholder}</option>
+                  {sections.customization.metalOptions.map((o) => (
+                    <option value={o}>{o}</option>
+                  ))}
+                </select>
+              </div>
+
+              <label class="form-field form-field--full">
+                <span>{sections.customization.notesLabel}</span>
+                <textarea
+                  name="notes"
+                  rows="5"
+                  placeholder={sections.customization.notesPlaceholder}
+                ></textarea>
+              </label>
+
+            </div>
+          </fieldset>
+
+          <button class="btn order-form__submit" type="submit">{form.submitText}</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>

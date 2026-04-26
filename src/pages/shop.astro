@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getProducts } from '../lib/shopify';
+import shopContent from '../content/shop.json';
 
 const shopDomain = import.meta.env.SHOPIFY_STORE_DOMAIN;
 const storefrontToken = import.meta.env.SHOPIFY_STOREFRONT_TOKEN;
@@ -22,12 +23,10 @@ try {
   <section class="shop-page">
     <div class="wrapper">
       <header class="shop-page__intro">
-        <p class="label label--center">Available Now</p>
-        <h1 class="section-title">Shop</h1>
+        <p class="label label--center">{shopContent.eyebrow}</p>
+        <h1 class="section-title">{shopContent.title}</h1>
         <div class="gold-rule"></div>
-        <p class="section-sub">
-          Each piece is handcrafted with real stones and ready to ship.
-        </p>
+        <p class="section-sub">{shopContent.intro}</p>
       </header>
 
       {fetchError && (
@@ -37,9 +36,7 @@ try {
       )}
 
       {!fetchError && products.length === 0 && (
-        <p class="shop-page__message">
-          No items are listed right now — check back soon.
-        </p>
+        <p class="shop-page__message">{shopContent.emptyMessage}</p>
       )}
 
       {products.length > 0 && (
@@ -88,9 +85,31 @@ try {
         </ul>
       )}
 
+      <div class="shop-page__info">
+        <div class="shop-info-block">
+          <h2>{shopContent.thingsToKnow.title}</h2>
+          <ul>
+            {shopContent.thingsToKnow.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+
+        <div class="shop-info-block">
+          <h2>{shopContent.pricing.title}</h2>
+          <ul class="shop-pricing">
+            {shopContent.pricing.items.map((row) => (
+              <li>
+                <span>{row.label}</span>
+                <span>{row.price}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="shop-shipping">{shopContent.shipping}</p>
+        </div>
+      </div>
+
       <div class="shop-page__custom-cta">
-        <p>Looking for something one-of-a-kind?</p>
-        <a href="/custom-order" class="btn">Request a Custom Piece</a>
+        <p>{shopContent.customCta.text}</p>
+        <a href={shopContent.customCta.href} class="btn">{shopContent.customCta.buttonText}</a>
       </div>
     </div>
   </section>

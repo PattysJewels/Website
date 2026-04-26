@@ -1,0 +1,28 @@
+{
+  "eyebrow": "Available Now",
+  "title": "Shop",
+  "intro": "Each piece you see is a sample. Everything can be made to fit your style, your size, and your preferences.",
+  "emptyMessage": "No items are listed right now. Check back soon.",
+  "thingsToKnow": {
+    "title": "Things to Know",
+    "items": [
+      "Bracelets are made with stretch cord or wire, your choice.",
+      "Necklaces are made to the length of your choosing.",
+      "Earrings are nickel-free and hypoallergenic."
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "items": [
+      { "label": "Bracelets", "price": "$20.00" },
+      { "label": "Earrings", "price": "$15.00" },
+      { "label": "Necklaces", "price": "$30.00" }
+    ]
+  },
+  "shipping": "Taxes and shipping are applied to each order. Spend $60 or more and shipping is free, though taxes still apply.",
+  "customCta": {
+    "text": "Looking for something one-of-a-kind?",
+    "buttonText": "Request a Custom Piece",
+    "href": "/contact"
+  }
+}

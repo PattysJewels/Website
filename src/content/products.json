@@ -1,47 +1,92 @@
 [
   {
-    "id": "bracelet-001",
-    "name": "Golden Ruby Bracelet",
+    "id": "bracelet-002",
+    "name": "Bracelet Collection",
     "category": "bracelets",
-    "image": "/images/gallery/bracelets/golden_ruby_bracelet.png",
-    "alt": "Handcrafted golden ruby bracelet by Patty",
+    "image": "/images/gallery/bracelets/bracelet_collection.jpg",
+    "alt": "Full display of Patty's handcrafted stretch bracelets in a wide range of colors and stones",
     "featured": true,
-    "materials": ["ruby", "gold"]
+    "materials": ["mixed stones", "stretch cord"]
   },
   {
-    "id": "necklace-001",
-    "name": "Ruby Necklace",
+    "id": "bracelet-003",
+    "name": "Mint Cord Heart Charm Bracelet",
+    "category": "bracelets",
+    "image": "/images/gallery/bracelets/mint_cord_heart_charm_bracelet.jpg",
+    "alt": "Mint green cord bracelet with stone and heart charm by Patty",
+    "featured": false,
+    "materials": ["cord", "natural stone", "silver charm"]
+  },
+  {
+    "id": "necklace-002",
+    "name": "Blue Cloisonné Set",
     "category": "necklaces",
-    "image": "/images/gallery/necklaces/ruby_necklace.png",
-    "alt": "Handcrafted ruby necklace by Patty",
+    "image": "/images/gallery/necklaces/blue_cloisonne_set.jpg",
+    "alt": "Blue cloisonné necklace and earring set handcrafted by Patty",
     "featured": true,
-    "materials": ["ruby", "silver findings"]
+    "materials": ["blue cloisonné", "gold findings"]
   },
   {
-    "id": "ring-001",
-    "name": "Sapphire Ring",
-    "category": "rings",
-    "image": "/images/gallery/rings/saphire_ring.png",
-    "alt": "Handcrafted sapphire ring by Patty",
+    "id": "necklace-003",
+    "name": "Copper Earth Tone Set",
+    "category": "necklaces",
+    "image": "/images/gallery/necklaces/copper_earth_tone_set.jpg",
+    "alt": "Copper and earth tone necklace and earring set by Patty",
+    "featured": false,
+    "materials": ["copper", "mixed earth tone stones"]
+  },
+  {
+    "id": "necklace-004",
+    "name": "Earth Tone Set",
+    "category": "necklaces",
+    "image": "/images/gallery/necklaces/earth_tone_set.jpg",
+    "alt": "Earth tone necklace and earring set handcrafted by Patty",
+    "featured": false,
+    "materials": ["natural stone", "gold findings"]
+  },
+  {
+    "id": "necklace-005",
+    "name": "Ivory Amber Set",
+    "category": "necklaces",
+    "image": "/images/gallery/necklaces/ivory_amber_set.jpg",
+    "alt": "Ivory and amber necklace and earring set handcrafted by Patty",
+    "featured": false,
+    "materials": ["ivory stone", "amber", "gold findings"]
+  },
+  {
+    "id": "necklace-006",
+    "name": "Ocean Breeze Set",
+    "category": "necklaces",
+    "image": "/images/gallery/necklaces/ocean_breeze_set.png",
+    "alt": "Teal shell Ocean Breeze necklace and earring set by Patty",
+    "featured": false,
+    "materials": ["shell", "silver findings"]
+  },
+  {
+    "id": "necklace-007",
+    "name": "Stone Pendant Necklace Collection",
+    "category": "necklaces",
+    "image": "/images/gallery/necklaces/silver_stone_pendant_display.jpg",
+    "alt": "Display of Patty's silver stone pendant necklaces and earrings",
+    "featured": false,
+    "materials": ["mixed stones", "silver settings"]
+  },
+  {
+    "id": "necklace-008",
+    "name": "Gold Stone Pendant Collection",
+    "category": "necklaces",
+    "image": "/images/gallery/necklaces/gold_stone_pendant_display.jpg",
+    "alt": "Display of Patty's gold stone pendant necklaces and earrings",
+    "featured": false,
+    "materials": ["mixed stones", "gold settings"]
+  },
+  {
+    "id": "earrings-001",
+    "name": "Earring Collection",
+    "category": "earrings",
+    "image": "/images/gallery/earrings/earring_collection.jpg",
+    "alt": "Full display of Patty's handcrafted stud earrings in a wide variety of stones and colors",
     "featured": true,
-    "materials": ["sapphire", "gold setting"]
-  },
-  {
-    "id": "ring-002",
-    "name": "Rose Gold Ring",
-    "category": "rings",
-    "image": "/images/placeholders/product-placeholder.jpg",
-    "alt": "Rose gold ring handcrafted by Patty — photo coming soon",
-    "featured": false,
-    "materials": ["rose gold", "natural stone"]
-  },
-  {
-    "id": "ring-003",
-    "name": "Oval Stone Ring",
-    "category": "rings",
-    "image": "/images/placeholders/product-placeholder.jpg",
-    "alt": "Oval stone ring handcrafted by Patty — photo coming soon",
-    "featured": false,
-    "materials": ["natural stone", "pave setting"]
+    "materials": ["mixed stones", "nickel-free", "hypoallergenic"]
   }
 ]

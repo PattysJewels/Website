@@ -74,6 +74,13 @@
     background: var(--white);
   }
 
+  &__note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+
   &--full {
     grid-column: 1 / -1;
   }

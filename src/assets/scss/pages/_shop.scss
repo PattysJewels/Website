@@ -12,6 +12,13 @@
     margin: 2rem 0;
   }
 
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
   &__custom-cta {
     text-align: center;
     border: 1px solid var(--gold-pale);
@@ -120,9 +127,57 @@
   }
 }
 
+.shop-info-block {
+  border: 1px solid var(--gold-pale);
+  background: var(--white);
+  padding: 1.5rem 1.75rem;
+
+  h2 {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 0;
+
+    li {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding: 0.2rem 0;
+    }
+  }
+}
+
+.shop-pricing li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--cream-dark);
+  padding: 0.4rem 0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.shop-shipping {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 @media (max-width: 900px) {
   .shop-page {
     padding-top: 7.5rem;
+
+    &__info {
+      grid-template-columns: 1fr;
+    }
   }
 
   .product-grid {

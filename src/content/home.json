@@ -8,13 +8,13 @@
     "ctaHref": "#about"
   },
   "about": {
-    "image": "/images/placeholders/patty-placeholder.jpg",
-    "imageAlt": "Patty, the maker behind Patty's Jewels — photo coming soon",
+    "image": "/images/about/patty.jpg",
+    "imageAlt": "Patty, the maker behind Patty's Jewels",
     "label": "The maker behind the work",
-    "title": "Where stones meet soul",
+    "title": "Thirty years of service. Five years of craft.",
     "body": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      "Hi, I'm Patty. I spent 30 years as a state employee, and during that time I built a second life in sales, selling everything from Tupperware to Amway and eventually jewelry with Park Lane, where I became one of their top salespeople.",
+      "When I retired, I asked myself — why not learn to make my own? That was five years ago, and I'm still learning and loving every step of the process. I hope you enjoy your shopping experience here."
     ],
     "ctaText": "See her work",
     "ctaHref": "#work"
@@ -22,7 +22,7 @@
   "featured": {
     "label": "Handcrafted pieces",
     "title": "A glimpse of the work",
-    "sub": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "sub": "Each piece you see is a sample. Every item can be made to fit your style, your size, and your preferences.",
     "maxItems": 3,
     "ctaText": "View full gallery",
     "ctaHref": "/gallery"
@@ -34,24 +34,24 @@
       {
         "icon": "◈",
         "title": "Natural Stones",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+        "body": "Every piece features real gemstones, hand-selected for their color and character. No synthetics, just the real thing."
       },
       {
         "icon": "◇",
-        "title": "Handset by Patty",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+        "title": "Made by One Person",
+        "body": "Patty makes every piece herself. No factory, no assembly line. Just one person who genuinely loves what she does."
       },
       {
         "icon": "✦",
-        "title": "Thoughtful Details",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+        "title": "Made to Fit You",
+        "body": "Bracelets in your size, necklaces at your length, earrings that are nickel-free and hypoallergenic. Each piece is a sample, so tell Patty what you want."
       }
     ]
   },
   "cta": {
     "label": "Custom orders welcome",
-    "title": "Interested in a piece of your own?",
-    "sub": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+    "title": "Are you ready? Let's go!",
+    "sub": "Each piece can be made to fit your style. Reach out and let's talk about what you have in mind. Patty would love to hear from you.",
     "ctaText": "Get in touch",
     "ctaHref": "/contact"
   }
