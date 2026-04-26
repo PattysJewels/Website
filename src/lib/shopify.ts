@@ -1,8 +1,8 @@
-const domain = import.meta.env.SHOPIFY_STORE_DOMAIN;
-const token = import.meta.env.SHOPIFY_STOREFRONT_TOKEN;
-const endpoint = `https://${domain}/api/2025-01/graphql.json`;
-
 async function shopifyFetch(query: string) {
+  const domain = import.meta.env.SHOPIFY_STORE_DOMAIN;
+  const token = import.meta.env.SHOPIFY_STOREFRONT_TOKEN;
+  const endpoint = `https://${domain}/api/2025-01/graphql.json`;
+
   const res = await fetch(endpoint, {
     method: 'POST',
     headers: {
