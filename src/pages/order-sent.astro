@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Order Sent — Patty's Jewels" description="Your custom order request has been received.">
+  <section class="order-sent-page">
+    <div class="wrapper">
+      <div class="order-sent-page__inner">
+        <p class="label label--center">You're all set</p>
+        <h1 class="section-title">Request Received</h1>
+        <div class="gold-rule"></div>
+        <p class="section-sub">
+          Patty will review your order and follow up with you directly to confirm details and pricing. Thank you — she can't wait to make something for you.
+        </p>
+        <div class="order-sent-page__actions">
+          <a href="/gallery" class="btn">Browse the Gallery</a>
+          <a href="/" class="order-sent-page__home">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .order-sent-page {
+    padding: 8rem 0 6rem;
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+
+    &__inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    &__home {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+
+      &:hover {
+        color: var(--gold);
+      }
+    }
+  }
+</style>

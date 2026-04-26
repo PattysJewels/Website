@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import content from '../content/custom-order.json';
 
-const { eyebrow, title, intro, charts, form } = content;
+const { eyebrow, title, intro, howItWorks, anchors, charts, form } = content;
 const { sections } = form;
 const placeholder = form.selectPlaceholder;
 ---
@@ -18,52 +18,81 @@ const placeholder = form.selectPlaceholder;
         <p class="section-sub">{intro}</p>
       </header>
 
-      <div class="chart-grid">
+      <div class="how-it-works">
+        <h2 class="how-it-works__title">{howItWorks.title}</h2>
+        <ol class="how-it-works__steps">
+          {howItWorks.steps.map((step) => (
+            <li class="how-it-works__step">
+              <span class="how-it-works__number">{step.number}</span>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <nav class="chart-anchors" aria-label="Jump to section">
+        {anchors.map((anchor) => (
+          <a href={anchor.href} class="chart-anchor">{anchor.label}</a>
+        ))}
+      </nav>
+
+      <div class="chart-sections">
         {charts.map((chart) => (
-          <figure
-            class:list={['chart-figure', { 'chart-figure--wide': chart.id === 'necklace-length' }]}
+          <section
+            class:list={['chart-section', { 'chart-section--wide': chart.wide }]}
             id={chart.id}
           >
-            <figcaption class="chart-figure__title">{chart.title}</figcaption>
-            <img src={chart.image} alt={chart.title} loading="lazy" />
-            <p class="chart-figure__caption">{chart.caption}</p>
-          </figure>
+            {chart.wide ? (
+              <div class="chart-section__wide-inner">
+                <div class="chart-section__text">
+                  <h2 class="chart-section__title">{chart.title}</h2>
+                  <p class="chart-section__instruction">{chart.instruction}</p>
+                </div>
+                <img src={chart.image} alt={chart.title} loading="lazy" class="chart-section__img" />
+              </div>
+            ) : (
+              <div class="chart-section__inner">
+                <img src={chart.image} alt={chart.title} loading="lazy" class="chart-section__img" />
+                <div class="chart-section__text">
+                  <h2 class="chart-section__title">{chart.title}</h2>
+                  <p class="chart-section__instruction">{chart.instruction}</p>
+                </div>
+              </div>
+            )}
+          </section>
         ))}
       </div>
 
-      <div class="custom-order-page__form-wrap">
-        <h2 class="custom-order-page__form-heading">Ready to order? Fill this out.</h2>
+      <div class="custom-order-page__form-wrap" id={form.id}>
+        <h2 class="custom-order-page__form-heading">Ready? Fill out the form below.</h2>
+        <p class="custom-order-page__form-note">{form.topNote}</p>
 
         <form
           class="order-form"
-          name={form.name}
+          action="/api/custom-order"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value={form.name} />
-          <input type="hidden" name="bot-field" />
 
           <fieldset class="order-form__section">
             <legend class="order-form__legend">{sections.contactInfo.legend}</legend>
             <div class="form-grid form-grid--double">
               <label class="form-field">
-                <span>{sections.contactInfo.fields.fullName}</span>
+                <span>{sections.contactInfo.fullNameLabel}</span>
                 <input type="text" name="full_name" autocomplete="name" required />
               </label>
               <label class="form-field">
-                <span>{sections.contactInfo.fields.email}</span>
+                <span>{sections.contactInfo.emailLabel}</span>
                 <input type="email" name="email" autocomplete="email" required />
               </label>
               <label class="form-field">
-                <span>{sections.contactInfo.fields.phone}</span>
+                <span>{sections.contactInfo.phoneLabel}</span>
                 <input type="tel" name="phone_number" autocomplete="tel" />
               </label>
             </div>
             <div class="form-choice">
-              <p>{sections.contactInfo.fields.preferredContact}</p>
+              <p>{sections.contactInfo.preferredContactLabel}</p>
               <div class="choice-grid">
-                {sections.contactInfo.fields.preferredContactOptions.map((option, i) => (
+                {sections.contactInfo.preferredContactOptions.map((option, i) => (
                   <label>
                     <input
                       type="radio"
@@ -114,6 +143,7 @@ const placeholder = form.selectPlaceholder;
                     <option value={o}>{o}</option>
                   ))}
                 </select>
+                <small class="form-field__hint">{sections.customization.earringHookHint}</small>
               </label>
 
               <label class="form-field">
@@ -124,6 +154,7 @@ const placeholder = form.selectPlaceholder;
                     <option value={o}>{o}</option>
                   ))}
                 </select>
+                <small class="form-field__hint">{sections.customization.charmHint}</small>
               </label>
 
               <label class="form-field">
@@ -134,6 +165,7 @@ const placeholder = form.selectPlaceholder;
                     <option value={o}>{o}</option>
                   ))}
                 </select>
+                <small class="form-field__hint">{sections.customization.claspHint}</small>
               </label>
 
               <label class="form-field">
@@ -144,6 +176,7 @@ const placeholder = form.selectPlaceholder;
                     <option value={o}>{o}</option>
                   ))}
                 </select>
+                <small class="form-field__hint">{sections.customization.necklaceLengthHint}</small>
               </label>
 
               <label class="form-field">
@@ -156,7 +189,7 @@ const placeholder = form.selectPlaceholder;
                 </select>
               </label>
 
-              <div class="form-field form-field--full">
+              <div class="form-field">
                 <span class="form-field__label">{sections.customization.metalLabel}</span>
                 <p class="form-field__note">{sections.customization.metalNote}</p>
                 <select name="metal_finish">
@@ -179,7 +212,10 @@ const placeholder = form.selectPlaceholder;
             </div>
           </fieldset>
 
-          <button class="btn order-form__submit" type="submit">{form.submitText}</button>
+          <div class="order-form__footer">
+            <button class="btn" type="submit">{form.submitText}</button>
+            <p class="order-form__submit-note">{form.submitNote}</p>
+          </div>
         </form>
       </div>
 

@@ -1,64 +1,88 @@
 {
   "eyebrow": "Make it yours",
   "title": "Custom Order",
-  "intro": "Not sure where to start? Use the charts below as a guide, then fill out the form and Patty will take it from there. Every detail is negotiable — these charts just help you put words to what you have in mind.",
+  "intro": "Design your piece using the reference charts below, then fill out the form. Patty will follow up with you directly to confirm details and get started.",
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": [
+      { "number": "1", "text": "Look through the reference charts to find the styles you like." },
+      { "number": "2", "text": "Note the numbers next to the options you want — hook, charm, clasp, length." },
+      { "number": "3", "text": "Fill out the form below. Patty will reach out to confirm and get started." }
+    ]
+  },
+  "anchors": [
+    { "label": "Earring Hooks", "href": "#earring-hooks" },
+    { "label": "Charms", "href": "#charms" },
+    { "label": "Clasps", "href": "#clasps" },
+    { "label": "Length Guide", "href": "#necklace-length" },
+    { "label": "Order Form", "href": "#order-form" }
+  ],
   "charts": [
     {
       "id": "earring-hooks",
-      "title": "Earring Hooks",
-      "caption": "Choose your hook style. Reference the number in the form below.",
-      "image": "/images/charts/earring_choice_chart.png"
+      "title": "Choose Your Earring Hook",
+      "instruction": "Use the number from the chart below in the form.",
+      "image": "/images/charts/earring_choice_chart.png",
+      "wide": false
     },
     {
       "id": "charms",
-      "title": "Charms & Pendants",
-      "caption": "Choose a charm or zodiac pendant. Reference the number in the form below.",
-      "image": "/images/charts/charm_choice_chart.png"
+      "title": "Choose Your Charm or Letter",
+      "instruction": "Pick the number that matches the charm or letter you want.",
+      "image": "/images/charts/charm_choice_chart.png",
+      "wide": false
     },
     {
       "id": "clasps",
-      "title": "Necklace Clasps",
-      "caption": "Choose your clasp style. Reference the number in the form below.",
-      "image": "/images/charts/clasp_choice_chart.png"
+      "title": "Choose Your Necklace Clasp",
+      "instruction": "Use the number from the chart below in the form.",
+      "image": "/images/charts/clasp_choice_chart.png",
+      "wide": false
     },
     {
       "id": "necklace-length",
-      "title": "Necklace Lengths",
-      "caption": "Common necklace lengths and how they typically sit. Pick the number of inches that works best for you.",
-      "image": "/images/charts/Necklace_guide.png"
+      "title": "Choose Your Necklace Length",
+      "instruction": "Use the length guide below to choose the fit you want.",
+      "image": "/images/charts/Necklace_guide.png",
+      "wide": true
     }
   ],
   "form": {
+    "id": "order-form",
     "name": "custom-order",
     "submitText": "Send My Order",
     "selectPlaceholder": "Select one",
+    "topNote": "Use the chart numbers from above when filling out your selections.",
+    "submitNote": "Patty will contact you after reviewing your order to confirm details and pricing.",
     "sections": {
       "contactInfo": {
         "legend": "Your Information",
-        "fields": {
-          "fullName": "Full Name",
-          "email": "Email Address",
-          "phone": "Phone Number (optional)",
-          "preferredContact": "Preferred Contact Method",
-          "preferredContactOptions": ["Email", "Text", "Call"]
-        }
+        "fullNameLabel": "Full Name",
+        "emailLabel": "Email Address",
+        "phoneLabel": "Phone Number (optional)",
+        "preferredContactLabel": "Preferred Contact Method",
+        "preferredContactOptions": ["Email", "Text", "Call"]
       },
       "pieceDetails": {
         "legend": "The Piece",
-        "pieceTypeLabel": "What kind of piece?",
+        "pieceTypeLabel": "Jewelry Type",
         "pieceTypeOptions": ["Earrings", "Necklace", "Bracelet", "Ring", "Not sure yet"],
         "quantityLabel": "How many?",
         "quantityOptions": ["1", "2", "3", "4", "5+"]
       },
       "customization": {
-        "legend": "Customization",
-        "earringHookLabel": "Earring Hook Style (see chart)",
+        "legend": "Your Selections",
+        "earringHookLabel": "Earring Hook Number",
+        "earringHookHint": "Example: Hook 3",
         "earringHookOptions": ["1", "2", "3", "4", "5", "6", "7", "8", "Not applicable"],
-        "charmLabel": "Charm / Pendant (see chart)",
+        "charmLabel": "Charm / Letter Number",
+        "charmHint": "Example: Charm 5",
         "charmOptions": ["1", "2", "3", "4", "5", "6", "7", "No charm", "Not applicable"],
-        "claspLabel": "Necklace Clasp Style (see chart)",
+        "claspLabel": "Necklace Clasp Number",
+        "claspHint": "Example: Clasp 2",
         "claspOptions": ["1", "2", "3", "4", "Not applicable"],
         "necklaceLengthLabel": "Necklace Length",
+        "necklaceLengthHint": "Example: 20 inch necklace",
         "necklaceLengthOptions": [
           "14 inches",
           "16 inches",
@@ -81,7 +105,15 @@
         ],
         "metalLabel": "Color / Finish",
         "metalNote": "Items are available in the following finishes:",
-        "metalOptions": ["Gold Plated", "Antique Bronze", "Rose", "Silver", "Copper", "Mother of Pearl", "No preference"],
+        "metalOptions": [
+          "Gold Plated",
+          "Antique Bronze",
+          "Rose",
+          "Silver",
+          "Copper",
+          "Mother of Pearl",
+          "No preference"
+        ],
         "notesLabel": "Anything else Patty should know?",
         "notesPlaceholder": "Stone preferences, colors, occasions, sizing details, or anything on your mind."
       }

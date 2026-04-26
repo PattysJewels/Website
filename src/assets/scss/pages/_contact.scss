@@ -7,42 +7,61 @@
   }
 }
 
-.contact-hero {
+.contact-methods {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2.8rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.contact-card {
   text-align: center;
-  max-width: 480px;
-  margin: 0 auto 2.8rem;
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
 
   &__eyebrow {
     font-size: 0.75rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold-text);
-    margin-bottom: 0.6rem;
   }
 
-  &__phone {
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    font-family: 'Cormorant Garamond', serif;
+  &__value {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-family: var(--font-serif);
     font-weight: 300;
     color: var(--charcoal);
-    line-height: 1.1;
-    margin-bottom: 1.4rem;
+    line-height: 1.2;
+  }
+
+  &__value--email {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    word-break: break-all;
   }
 
   &__btn {
-    margin-bottom: 1.4rem;
+    margin-top: 0.4rem;
   }
 
   &__copy {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.6;
+    margin-top: 0.4rem;
   }
 
   &__note {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 1.4rem;
     font-style: italic;
   }
 }

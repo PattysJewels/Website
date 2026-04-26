@@ -1,117 +1,41 @@
 {
-  "eyebrow": "Custom orders and questions",
-  "title": "Get in Touch",
-  "intro": "Call Patty directly or complete the custom order form below. She can help with new pieces, repairs, redesigns, and special occasion jewelry.",
+  "eyebrow": "Questions and support",
+  "title": "Contact",
+  "intro": "Have a question about an order, need help with something, or just want to get in touch? Reach out however works best for you.",
   "phone": "301-456-4494",
+  "email": "pattyannwillis@yahoo.com",
   "phoneCard": {
     "eyebrow": "Call Patty",
     "ctaText": "Call Now",
-    "fallbackNote": "Patty's phone number is currently set to TBD in content. Update contact.json or site.json and it will appear here.",
-    "copy": "Phone is the preferred contact method. If Patty is unavailable, submit the form and she will follow up."
+    "fallbackNote": "Phone number not yet set. Update contact.json to add it.",
+    "copy": "Phone is the best way to reach Patty. If she's unavailable, leave a message and she'll call back."
   },
+  "emailCard": {
+    "eyebrow": "Email Patty",
+    "ctaText": "Send Email"
+  },
+  "formToggleText": "Prefer to write? Send a message",
   "form": {
-    "name": "custom-order",
+    "name": "contact",
+    "submitText": "Send Message",
     "selectPlaceholder": "Select one",
-    "submitText": "Submit Custom Order Request",
     "sections": {
       "contactInfo": {
-        "legend": "1. Contact Info",
+        "legend": "Your Information",
         "fullNameLabel": "Full Name",
-        "emailLabel": "Email",
-        "phoneLabel": "Phone Number",
-        "preferredContactMethodLabel": "Preferred Contact Method",
-        "preferredContactMethodOptions": ["Email", "Text", "Phone Call"]
+        "emailLabel": "Email Address",
+        "phoneLabel": "Phone Number (optional)"
       },
-      "requestDetails": {
-        "legend": "2. What are you looking for?",
-        "pieceTypeLabel": "Type of Piece",
-        "pieceTypeOptions": ["Ring", "Necklace", "Bracelet", "Earrings", "Pendant", "Other"],
-        "projectTypeLabel": "Project Type",
-        "projectTypeOptions": [
-          "New custom piece",
-          "Repair",
-          "Resize",
-          "Stone setting",
-          "Redesign old jewelry",
-          "Engraving",
-          "Other"
-        ]
-      },
-      "materials": {
-        "legend": "3. Materials",
-        "preferredMetalLabel": "Preferred Metal",
-        "preferredMetalOptions": [
-          "Sterling silver",
-          "Yellow gold",
-          "White gold",
-          "Rose gold",
-          "Platinum",
-          "Not sure"
+      "message": {
+        "legend": "Your Message",
+        "topicLabel": "What is this about?",
+        "topicOptions": [
+          "General Question",
+          "Order Status",
+          "Returns or Issues",
+          "Something Else"
         ],
-        "preferredStoneLabel": "Preferred Stone",
-        "preferredStoneOptions": [
-          "Diamond",
-          "Birthstone",
-          "Gemstone",
-          "Pearl",
-          "No stone",
-          "Not sure"
-        ],
-        "hasExistingPieceLabel": "Do you already have the stone or jewelry piece?",
-        "hasExistingPieceOptions": ["Yes", "No", "I'm not sure"]
-      },
-      "designDetails": {
-        "legend": "3. Tell Patty about it",
-        "ideaLabel": "Describe your idea",
-        "uploadLabel": "Upload reference photos",
-        "preferredStyleLabel": "Preferred Style",
-        "preferredStyleOptions": [
-          "Simple",
-          "Elegant",
-          "Vintage",
-          "Modern",
-          "Bold",
-          "Religious / symbolic",
-          "Sentimental / memorial",
-          "Not sure"
-        ]
-      },
-      "sizing": {
-        "legend": "5. Sizing",
-        "detailsLabel": "Ring size, wrist size, necklace length, or other sizing details",
-        "needHelpLabel": "Not sure / need help sizing"
-      },
-      "budgetTimeline": {
-        "legend": "6. Budget + Timeline",
-        "budgetLabel": "Estimated Budget",
-        "budgetOptions": [
-          "Under $100",
-          "$100-$250",
-          "$250-$500",
-          "$500-$1,000",
-          "$1,000+",
-          "Not sure yet"
-        ],
-        "completionDateLabel": "Desired completion date",
-        "occasionLabel": "Is this for a special occasion?",
-        "occasionOptions": [
-          "Birthday",
-          "Anniversary",
-          "Engagement",
-          "Wedding",
-          "Graduation",
-          "Memorial",
-          "Holiday",
-          "Other"
-        ]
-      },
-      "extraNotes": {
-        "legend": "7. Extra Notes",
-        "engravingTextLabel": "Any engraving text?",
-        "allergiesLabel": "Any metal allergies or sensitivities?",
-        "pickupOrShippingLabel": "Pickup or shipping preference?",
-        "pickupOrShippingOptions": ["Pickup", "Shipping", "Not sure"],
-        "anythingElseLabel": "Anything else Patty should know?"
+        "messageLabel": "Message"
       }
     }
   }

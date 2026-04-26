@@ -5,12 +5,16 @@ import contactContent from '../content/contact.json';
 
 const pageTitle = contactContent.title;
 const pageIntro = contactContent.intro;
+
 const displayPhone = contactContent.phone || site.phone || 'TBD';
 const phoneDigits = displayPhone.replace(/\D/g, '');
 const phoneHref = phoneDigits ? `tel:${phoneDigits}` : '';
 
-const sections = contactContent.form.sections;
-const selectPlaceholder = contactContent.form.selectPlaceholder || 'Select one';
+const displayEmail = contactContent.email || '';
+const emailHref = displayEmail ? `mailto:${displayEmail}` : '';
+
+const { sections } = contactContent.form;
+const placeholder = contactContent.form.selectPlaceholder;
 ---
 
 <BaseLayout title={`${pageTitle} - Patty's Jewels`} description={pageIntro}>
@@ -21,49 +25,56 @@ const selectPlaceholder = contactContent.form.selectPlaceholder || 'Select one';
         <p class="label label--center">{contactContent.eyebrow}</p>
         <h1 class="section-title">{pageTitle}</h1>
         <div class="gold-rule"></div>
+        <p class="section-sub">{pageIntro}</p>
       </header>
 
-      <div class="contact-hero">
-        <p class="contact-hero__eyebrow">{contactContent.phoneCard.eyebrow}</p>
-        <p class="contact-hero__phone">{displayPhone}</p>
-        {
-          phoneHref ? (
-            <a class="btn contact-hero__btn" href={phoneHref}>
-              {contactContent.phoneCard.ctaText}
-            </a>
+      <div class="contact-methods">
+        <div class="contact-card">
+          <p class="contact-card__eyebrow">{contactContent.phoneCard.eyebrow}</p>
+          {displayPhone !== 'TBD' ? (
+            <>
+              <p class="contact-card__value">{displayPhone}</p>
+              <a class="btn contact-card__btn" href={phoneHref}>
+                {contactContent.phoneCard.ctaText}
+              </a>
+              <p class="contact-card__copy">{contactContent.phoneCard.copy}</p>
+            </>
           ) : (
-            <p class="contact-hero__note">{contactContent.phoneCard.fallbackNote}</p>
-          )
-        }
-        <p class="contact-hero__copy">{contactContent.phoneCard.copy}</p>
+            <p class="contact-card__note">{contactContent.phoneCard.fallbackNote}</p>
+          )}
+        </div>
+
+        {displayEmail && (
+          <div class="contact-card">
+            <p class="contact-card__eyebrow">{contactContent.emailCard.eyebrow}</p>
+            <p class="contact-card__value contact-card__value--email">{displayEmail}</p>
+            <a class="btn contact-card__btn" href={emailHref}>
+              {contactContent.emailCard.ctaText}
+            </a>
+          </div>
+        )}
       </div>
 
       <div class="form-toggle-wrap">
         <button
           class="form-toggle"
           aria-expanded="false"
-          aria-controls="order-form-drawer"
+          aria-controls="contact-form-drawer"
         >
-          Prefer not to call? Submit a custom order request
+          {contactContent.formToggleText}
           <span class="form-toggle__icon" aria-hidden="true">↓</span>
         </button>
       </div>
 
-      <div class="form-drawer" id="order-form-drawer" aria-hidden="true">
+      <div class="form-drawer" id="contact-form-drawer" aria-hidden="true">
         <form
           class="order-form"
-          name={contactContent.form.name}
+          action="/api/contact"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          enctype="multipart/form-data"
         >
-          <input type="hidden" name="form-name" value={contactContent.form.name} />
-          <input type="hidden" name="bot-field" />
 
           <fieldset class="order-form__section">
             <legend class="order-form__legend">{sections.contactInfo.legend}</legend>
-
             <div class="form-grid form-grid--double">
               <label class="form-field">
                 <span>{sections.contactInfo.fullNameLabel}</span>
@@ -78,195 +89,26 @@ const selectPlaceholder = contactContent.form.selectPlaceholder || 'Select one';
                 <input type="tel" name="phone_number" autocomplete="tel" />
               </label>
             </div>
-
-            <div class="form-choice">
-              <p>{sections.contactInfo.preferredContactMethodLabel}</p>
-              <div class="choice-grid">
-                {
-                  sections.contactInfo.preferredContactMethodOptions.map((option, index) => (
-                    <label>
-                      <input
-                        type="radio"
-                        name="preferred_contact_method"
-                        value={option}
-                        required={index === 0}
-                      />
-                      {option}
-                    </label>
-                  ))
-                }
-              </div>
-            </div>
           </fieldset>
 
           <fieldset class="order-form__section">
-            <legend class="order-form__legend">{sections.requestDetails.legend}</legend>
-
-            <div class="form-grid form-grid--double">
-              <label class="form-field">
-                <span>{sections.requestDetails.pieceTypeLabel}</span>
-                <select name="piece_type" required>
-                  <option value="">{selectPlaceholder}</option>
-                  {
-                    sections.requestDetails.pieceTypeOptions.map((option) => (
-                      <option value={option}>{option}</option>
-                    ))
-                  }
-                </select>
-              </label>
-
-              <label class="form-field">
-                <span>{sections.requestDetails.projectTypeLabel}</span>
-                <select name="project_type" required>
-                  <option value="">{selectPlaceholder}</option>
-                  {
-                    sections.requestDetails.projectTypeOptions.map((option) => (
-                      <option value={option}>{option}</option>
-                    ))
-                  }
-                </select>
-              </label>
-            </div>
-          </fieldset>
-
-          <fieldset class="order-form__section">
-            <legend class="order-form__legend">{sections.designDetails.legend}</legend>
-
-            <div class="form-grid">
-              <label class="form-field form-field--full">
-                <span>{sections.designDetails.ideaLabel}</span>
-                <textarea name="design_details" rows="5" required></textarea>
-              </label>
-
-              <label class="form-field">
-                <span>{sections.budgetTimeline.budgetLabel}</span>
-                <select name="estimated_budget">
-                  <option value="">{selectPlaceholder}</option>
-                  {
-                    sections.budgetTimeline.budgetOptions.map((option) => (
-                      <option value={option}>{option}</option>
-                    ))
-                  }
-                </select>
-              </label>
-
-              <label class="form-field form-field--full">
-                <span>{sections.designDetails.uploadLabel}</span>
-                <input type="file" name="reference_photos" accept=".jpg,.jpeg,.png,.webp,.heic" multiple />
-              </label>
-            </div>
-          </fieldset>
-
-          {/* TODO: Discuss with Patty — these sections were removed to shorten the form.
-              Restore any that she wants to collect upfront.
-
-          <fieldset class="order-form__section">
-            <legend class="order-form__legend">{sections.materials.legend}</legend>
-            <div class="form-grid form-grid--double">
-              <label class="form-field">
-                <span>{sections.materials.preferredMetalLabel}</span>
-                <select name="preferred_metal">
-                  <option value="">{selectPlaceholder}</option>
-                  {sections.materials.preferredMetalOptions.map((option) => (
-                    <option value={option}>{option}</option>
-                  ))}
-                </select>
-              </label>
-              <label class="form-field">
-                <span>{sections.materials.preferredStoneLabel}</span>
-                <select name="preferred_stone">
-                  <option value="">{selectPlaceholder}</option>
-                  {sections.materials.preferredStoneOptions.map((option) => (
-                    <option value={option}>{option}</option>
-                  ))}
-                </select>
-              </label>
-            </div>
-            <div class="form-choice">
-              <p>{sections.materials.hasExistingPieceLabel}</p>
-              <div class="choice-grid">
-                {sections.materials.hasExistingPieceOptions.map((option, index) => (
-                  <label>
-                    <input type="radio" name="has_existing_piece" value={option} required={index === 0} />
-                    {option}
-                  </label>
-                ))}
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset class="order-form__section">
-            <legend class="order-form__legend">{sections.designDetails.preferredStyleLabel}</legend>
-            <div class="form-choice">
-              <div class="choice-grid choice-grid--wide">
-                {sections.designDetails.preferredStyleOptions.map((option) => (
-                  <label><input type="checkbox" name="preferred_style" value={option} /> {option}</label>
-                ))}
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset class="order-form__section">
-            <legend class="order-form__legend">{sections.sizing.legend}</legend>
-            <div class="form-grid">
-              <label class="form-field form-field--full">
-                <span>{sections.sizing.detailsLabel}</span>
-                <input type="text" name="sizing_details" />
-              </label>
-            </div>
-            <label class="form-check">
-              <input type="checkbox" name="need_sizing_help" value="Yes" />
-              <span>{sections.sizing.needHelpLabel}</span>
-            </label>
-          </fieldset>
-
-          <fieldset class="order-form__section">
-            <legend class="order-form__legend">Timeline + Occasion</legend>
-            <div class="form-grid form-grid--double">
-              <label class="form-field">
-                <span>{sections.budgetTimeline.completionDateLabel}</span>
-                <input type="date" name="desired_completion_date" />
-              </label>
-              <label class="form-field">
-                <span>{sections.budgetTimeline.occasionLabel}</span>
-                <select name="special_occasion">
-                  <option value="">{selectPlaceholder}</option>
-                  {sections.budgetTimeline.occasionOptions.map((option) => (
-                    <option value={option}>{option}</option>
-                  ))}
-                </select>
-              </label>
-            </div>
-          </fieldset>
-
-          <fieldset class="order-form__section">
-            <legend class="order-form__legend">{sections.extraNotes.legend}</legend>
+            <legend class="order-form__legend">{sections.message.legend}</legend>
             <div class="form-grid">
               <label class="form-field">
-                <span>{sections.extraNotes.engravingTextLabel}</span>
-                <input type="text" name="engraving_text" />
-              </label>
-              <label class="form-field form-field--full">
-                <span>{sections.extraNotes.allergiesLabel}</span>
-                <textarea name="metal_allergies" rows="3"></textarea>
-              </label>
-              <label class="form-field">
-                <span>{sections.extraNotes.pickupOrShippingLabel}</span>
-                <select name="pickup_or_shipping_preference">
-                  <option value="">{selectPlaceholder}</option>
-                  {sections.extraNotes.pickupOrShippingOptions.map((option) => (
+                <span>{sections.message.topicLabel}</span>
+                <select name="topic" required>
+                  <option value="">{placeholder}</option>
+                  {sections.message.topicOptions.map((option) => (
                     <option value={option}>{option}</option>
                   ))}
                 </select>
               </label>
               <label class="form-field form-field--full">
-                <span>{sections.extraNotes.anythingElseLabel}</span>
-                <textarea name="additional_notes" rows="4"></textarea>
+                <span>{sections.message.messageLabel}</span>
+                <textarea name="message" rows="6" required></textarea>
               </label>
             </div>
           </fieldset>
-
-          */}
 
           <button class="btn order-form__submit" type="submit">{contactContent.form.submitText}</button>
         </form>
