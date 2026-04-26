@@ -1,0 +1,50 @@
+@use 'sass:color';
+
+// ── Base accent — change this one value to shift the entire gold palette ───────
+$accent: #c9a84c ; 
+
+// ── Derived accent scale (computed by SCSS) ────────────────────────────────────
+$accent-dark:    color.scale($accent, $lightness: -12%);
+$accent-mid:     $accent;
+$accent-light:   color.scale($accent, $lightness: 22%);
+$accent-pale:    color.scale($accent, $lightness: 32%);
+$accent-deepest: color.scale($accent, $lightness: -28%);
+$accent-text:    color.scale($accent, $lightness: -42%);
+
+:root {
+  // Neutrals
+  --cream: #faf8f4;
+  --cream-mid: #f4ede0;
+  --cream-dark: #ede4d3;
+
+  // Accent (gold) scale — all derived from $accent above
+  --gold:       #{$accent-dark};
+  --gold-mid:   #{$accent-mid};
+  --gold-light: #{$accent-light};
+  --gold-pale:  #{$accent-pale};
+  --gold-text:  #{$accent-text};
+
+  // Silver / dark
+  --silver: #a0a0aa;
+  --charcoal: #2a2620;
+  --white: #ffffff;
+
+  // Text
+  --text: #3d3530;
+  --text-muted: #7a6e65;
+
+  // Typography
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-script: 'Great Vibes', cursive;
+
+  // Shimmer — derived from the same accent base
+  --shimmer-dark:  #{$accent-deepest};
+  --shimmer-mid:   #{$accent-mid};
+  --shimmer-light: #{$accent-pale};
+
+  // Component-specific alpha tokens
+  --nav-bg:      rgba(250, 248, 244, 0.88);
+  --hero-overlay: rgba(250, 248, 244, 0.82);
+  --hero-btn-bg:  rgba(250, 248, 244, 0.55);
+  --shine:        rgba(255, 255, 255, 0.25);
+}

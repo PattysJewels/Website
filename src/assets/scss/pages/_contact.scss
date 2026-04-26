@@ -1,0 +1,94 @@
+.contact-page {
+  padding: 8.5rem 0 6rem;
+  background: linear-gradient(180deg, var(--cream-mid) 0%, var(--cream) 100%);
+
+  &__intro {
+    margin-bottom: 2.6rem;
+  }
+}
+
+.contact-hero {
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto 2.8rem;
+
+  &__eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+    margin-bottom: 0.6rem;
+  }
+
+  &__phone {
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.1;
+    margin-bottom: 1.4rem;
+  }
+
+  &__btn {
+    margin-bottom: 1.4rem;
+  }
+
+  &__copy {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  &__note {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 1.4rem;
+    font-style: italic;
+  }
+}
+
+.form-toggle-wrap {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.form-toggle {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--gold);
+  }
+
+  &__icon {
+    display: inline-block;
+    transition: transform 0.35s ease;
+    font-size: 1rem;
+  }
+
+  &--open &__icon {
+    transform: rotate(180deg);
+  }
+}
+
+.form-drawer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.55s ease, opacity 0.4s ease;
+}
+
+@media (max-width: 900px) {
+  .contact-page {
+    padding-top: 7.5rem;
+  }
+}

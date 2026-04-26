@@ -1,0 +1,25 @@
+// Abstracts (CSS custom properties — outputs :root block)
+@use 'abstracts/variables';
+
+// Base
+@use 'base/reset';
+@use 'base/globals';
+@use 'base/typography';
+
+// Layout
+@use 'layout/container';
+@use 'layout/header';
+@use 'layout/footer';
+
+// Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/gallery';
+@use 'components/forms';
+@use 'components/contact' as contactComponent;
+
+// Pages
+@use 'pages/home';
+@use 'pages/contact' as contactPage;
+@use 'pages/gallery' as galleryPage;
+@use 'pages/not-found' as notFoundPage;

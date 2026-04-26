@@ -1,0 +1,15 @@
+.not-found-page {
+  padding: 8.5rem 0 6rem;
+  background: linear-gradient(180deg, var(--cream-mid) 0%, var(--cream) 100%);
+
+  &__inner {
+    max-width: 680px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .not-found-page {
+    padding-top: 7.5rem;
+  }
+}

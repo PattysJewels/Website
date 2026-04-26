@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import notFoundContent from '../content/not-found.json';
+---
+
+<BaseLayout title={`${notFoundContent.title} - Jewels by Patty`} description={notFoundContent.intro}>
+  <section class="not-found-page">
+    <div class="wrapper not-found-page__inner">
+      <p class="label label--center">{notFoundContent.eyebrow}</p>
+      <h1 class="section-title">{notFoundContent.title}</h1>
+      <div class="gold-rule"></div>
+      <p class="section-sub">{notFoundContent.intro}</p>
+      <a href={notFoundContent.ctaHref} class="btn">{notFoundContent.ctaText}</a>
+    </div>
+  </section>
+</BaseLayout>

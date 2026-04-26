@@ -1,0 +1,116 @@
+---
+import '../assets/scss/main.scss';
+import site from '../content/site.json';
+import seo from '../content/seo.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  heroImage?: string;
+}
+
+const {
+  title = 'Jewels by Patty — Handcrafted Jewelry, Baltimore MD',
+  description = 'Handcrafted jewelry made with real stones by Patty, based in Baltimore, Maryland. One-of-a-kind pieces made with love. Custom orders welcome.',
+  heroImage,
+} = Astro.props;
+
+const canonicalURL = Astro.url.href;
+const siteBase = `https://${site.domain}`;
+const ogImageURL = new URL(seo.ogImage, siteBase).href;
+const phone = site.phone && site.phone !== 'TBD' ? site.phone : undefined;
+
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'JewelryStore',
+  name: site.siteName,
+  description: site.tagline,
+  url: siteBase,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Baltimore',
+    addressRegion: 'MD',
+    addressCountry: 'US',
+  },
+  ...(phone ? { telephone: phone } : {}),
+};
+
+const currentYear = new Date().getFullYear();
+const pathname = Astro.url.pathname;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={seo.locale} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content={seo.twitterCard} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- JSON-LD -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLD)} />
+
+    {heroImage && <link rel="preload" as="image" href={heroImage} />}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="nav">
+      <div class="wrapper nav__inner">
+        <a href="/" class="nav__logo">{site.siteName}</a>
+        <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <ul class="nav__links">
+      <li><a href="/#about" class:list={[{ 'is-active': pathname === '/' }]}>About</a></li>
+      <li><a href="/gallery" class:list={[{ 'is-active': pathname === '/gallery' }]}>Gallery</a></li>
+      <li><a href="/contact" class:list={[{ 'is-active': pathname === '/contact' }]}>Contact</a></li>
+    </ul>
+
+    <main class="site-main">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="wrapper footer__inner">
+        <span class="footer__logo">{site.siteName}</span>
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="/#about">About</a>
+          <a href="/gallery">Gallery</a>
+          <a href="/contact">Contact</a>
+        </nav>
+        <p class="footer__copy">© {currentYear} {site.siteName} · {site.businessLocation}</p>
+      </div>
+    </footer>
+
+    <script>
+      import '../assets/ts/main.ts';
+    </script>
+  </body>
+</html>

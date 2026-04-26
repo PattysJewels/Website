@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import homeContent from '../content/home.json';
+import products from '../content/products.json';
+import seo from '../content/seo.json';
+
+const featuredProducts = products
+  .filter((product) => product.featured)
+  .slice(0, homeContent.featured.maxItems || 3)
+  .map((product) => ({
+    src: product.image,
+    alt: product.alt,
+  }));
+---
+
+<BaseLayout title={seo.defaultTitle} description={seo.defaultDescription} heroImage={homeContent.hero.image}>
+  <section class="hero">
+    <div class="hero__bg" style={`background-image: url('${homeContent.hero.image}')`}></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">{homeContent.hero.eyebrow}</p>
+      <h1 class="main_header">{homeContent.hero.title}</h1>
+      <div class="gold-rule"></div>
+      <p class="hero__sub">{homeContent.hero.sub}</p>
+      <a href={homeContent.hero.ctaHref} class="btn">{homeContent.hero.ctaText}</a>
+    </div>
+    <a href={homeContent.hero.ctaHref} class="hero__scroll" aria-label="Scroll down">
+      <span class="hero__scroll-line"></span>
+    </a>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrapper">
+      <div class="about__grid">
+        <div class="about__img-wrap">
+          <img src={homeContent.about.image} alt={homeContent.about.imageAlt} class="about__img" />
+        </div>
+        <div class="about__text">
+          <p class="label">{homeContent.about.label}</p>
+          <h2>{homeContent.about.title}</h2>
+          <div class="gold-rule gold-rule--left"></div>
+          {homeContent.about.body.map((paragraph) => <p>{paragraph}</p>)}
+          <a href={homeContent.about.ctaHref} class="btn btn--ghost">{homeContent.about.ctaText}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured" id="work">
+    <div class="wrapper">
+      <p class="label label--center">{homeContent.featured.label}</p>
+      <h2 class="section-title">{homeContent.featured.title}</h2>
+      <div class="gold-rule"></div>
+      <p class="section-sub">{homeContent.featured.sub}</p>
+      <div class="gallery-grid">
+        {
+          featuredProducts.map((img) => (
+            <div class="gallery-item">
+              <img src={img.src} alt={img.alt} loading="lazy" />
+              <div class="gallery-item__shine"></div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="featured__cta">
+        <a href={homeContent.featured.ctaHref} class="btn">{homeContent.featured.ctaText}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="craft">
+    <div class="wrapper">
+      <p class="label label--center">{homeContent.craft.label}</p>
+      <h2 class="section-title">{homeContent.craft.title}</h2>
+      <div class="gold-rule"></div>
+      <div class="craft__grid">
+        {
+          homeContent.craft.items.map((item) => (
+            <div class="craft__item">
+              <div class="craft__icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="contact">
+    <div class="wrapper cta-band__inner">
+      <div>
+        <p class="label">{homeContent.cta.label}</p>
+        <h2>{homeContent.cta.title}</h2>
+        <p class="cta-band__sub">{homeContent.cta.sub}</p>
+      </div>
+      <div class="cta-band__actions">
+        <a href={homeContent.cta.ctaHref} class="btn">{homeContent.cta.ctaText}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

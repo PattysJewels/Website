@@ -1,0 +1,138 @@
+.order-form {
+  border: 1px solid var(--gold-pale);
+  background: var(--white);
+  padding: 1.5rem;
+
+  &__section {
+    border: 1px solid var(--cream-dark);
+    padding: 1.1rem 1rem 1rem;
+
+    & + & {
+      margin-top: 1rem;
+    }
+  }
+
+  &__legend {
+    color: var(--charcoal);
+    font-size: 1.2rem;
+    line-height: 1.2;
+    padding-inline: 0.35rem;
+  }
+
+  &__submit {
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+
+  &--double {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  span {
+    font-size: 0.84rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    border: 1px solid var(--gold-pale);
+    background: var(--cream);
+    color: var(--charcoal);
+    padding: 0.68rem 0.8rem;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.4;
+    transition: border-color 0.2s ease;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  input[type='file'] {
+    padding: 0.45rem;
+    background: var(--white);
+  }
+
+  &--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.form-choice {
+  margin-top: 1rem;
+
+  p {
+    font-size: 0.84rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem 0.8rem;
+
+  &--wide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text-muted);
+    font-size: 0.98rem;
+  }
+
+  input[type='radio'],
+  input[type='checkbox'] {
+    accent-color: var(--gold);
+  }
+}
+
+.form-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+
+  input[type='checkbox'] {
+    accent-color: var(--gold);
+  }
+}
+
+@media (max-width: 900px) {
+  .form-grid--double {
+    grid-template-columns: 1fr;
+  }
+
+  .choice-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "hero": {
+    "image": "/images/hero/diamond_background.png",
+    "eyebrow": "Baltimore, Maryland",
+    "title": "Jewels by Patty",
+    "sub": "Jewels made with love",
+    "ctaText": "Meet Patty",
+    "ctaHref": "#about"
+  },
+  "about": {
+    "image": "/images/placeholders/patty-placeholder.jpg",
+    "imageAlt": "Patty, the maker behind Jewels by Patty — photo coming soon",
+    "label": "The maker behind the work",
+    "title": "A craftwoman's heart, a Baltimore spirit",
+    "body": [
+      "Born and raised in the Baltimore area, Patty has spent years perfecting her craft — selecting natural stones by hand, setting each one carefully, and finishing every piece with the kind of attention that only comes from someone who genuinely loves what they do.",
+      "What started as a personal passion has grown into something she's proud to share. Every bracelet, necklace, and ring that leaves her hands is a one-of-a-kind creation — made by one person, with care, for you."
+    ],
+    "ctaText": "See her work",
+    "ctaHref": "#work"
+  },
+  "featured": {
+    "label": "Handcrafted pieces",
+    "title": "A glimpse of the work",
+    "sub": "Each piece is made entirely by hand — no factory lines, no shortcuts. Just Patty, her materials, and years of practiced skill.",
+    "maxItems": 3,
+    "ctaText": "View full gallery",
+    "ctaHref": "/gallery"
+  },
+  "craft": {
+    "label": "What makes it special",
+    "title": "Made by hand. Made with care.",
+    "items": [
+      {
+        "icon": "◈",
+        "title": "Natural Stones",
+        "body": "Every piece features genuine, hand-selected gemstones — chosen for their color, character, and quality. No synthetics, no shortcuts."
+      },
+      {
+        "icon": "◇",
+        "title": "Handset by Patty",
+        "body": "Each stone is placed and finished entirely by hand. There is no assembly line — just one person who cares deeply about the result."
+      },
+      {
+        "icon": "✦",
+        "title": "Thoughtful Details",
+        "body": "From the spacers to the clasps, every element is chosen to complement the stones and hold the piece together beautifully for years to come."
+      }
+    ]
+  },
+  "cta": {
+    "label": "Custom orders welcome",
+    "title": "Interested in a piece of your own?",
+    "sub": "Patty loves working with people on custom orders. Whether you have something specific in mind or just want to start a conversation — reach out. She'd love to hear from you.",
+    "ctaText": "Get in touch",
+    "ctaHref": "/contact"
+  }
+}

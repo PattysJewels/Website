@@ -1,0 +1,47 @@
+[
+  {
+    "id": "bracelet-001",
+    "name": "Golden Ruby Bracelet",
+    "category": "bracelets",
+    "image": "/images/gallery/bracelets/golden_ruby_bracelet.png",
+    "alt": "Handcrafted golden ruby bracelet by Patty",
+    "featured": true,
+    "materials": ["ruby", "gold"]
+  },
+  {
+    "id": "necklace-001",
+    "name": "Ruby Necklace",
+    "category": "necklaces",
+    "image": "/images/gallery/necklaces/ruby_necklace.png",
+    "alt": "Handcrafted ruby necklace by Patty",
+    "featured": true,
+    "materials": ["ruby", "silver findings"]
+  },
+  {
+    "id": "ring-001",
+    "name": "Sapphire Ring",
+    "category": "rings",
+    "image": "/images/gallery/rings/saphire_ring.png",
+    "alt": "Handcrafted sapphire ring by Patty",
+    "featured": true,
+    "materials": ["sapphire", "gold setting"]
+  },
+  {
+    "id": "ring-002",
+    "name": "Rose Gold Ring",
+    "category": "rings",
+    "image": "/images/placeholders/product-placeholder.jpg",
+    "alt": "Rose gold ring handcrafted by Patty — photo coming soon",
+    "featured": false,
+    "materials": ["rose gold", "natural stone"]
+  },
+  {
+    "id": "ring-003",
+    "name": "Oval Stone Ring",
+    "category": "rings",
+    "image": "/images/placeholders/product-placeholder.jpg",
+    "alt": "Oval stone ring handcrafted by Patty — photo coming soon",
+    "featured": false,
+    "materials": ["natural stone", "pave setting"]
+  }
+]
