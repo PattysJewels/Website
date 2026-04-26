@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProducts } from '../lib/shopify';
+
+const shopDomain = import.meta.env.SHOPIFY_STORE_DOMAIN;
+const storefrontToken = import.meta.env.SHOPIFY_STOREFRONT_TOKEN;
+
+let products: Awaited<ReturnType<typeof getProducts>> = [];
+let fetchError = false;
+
+try {
+  products = await getProducts();
+} catch {
+  fetchError = true;
+}
+---
+
+<BaseLayout
+  title="Shop — Patty's Jewels"
+  description="Handcrafted jewelry by Patty, available for purchase. Each piece is one-of-a-kind and ready to ship."
+>
+  <section class="shop-page">
+    <div class="wrapper">
+      <header class="shop-page__intro">
+        <p class="label label--center">Available Now</p>
+        <h1 class="section-title">Shop</h1>
+        <div class="gold-rule"></div>
+        <p class="section-sub">
+          Each piece is handcrafted with real stones and ready to ship.
+        </p>
+      </header>
+
+      {fetchError && (
+        <p class="shop-page__message">
+          Unable to load products right now. Please try again later.
+        </p>
+      )}
+
+      {!fetchError && products.length === 0 && (
+        <p class="shop-page__message">
+          No items are listed right now — check back soon.
+        </p>
+      )}
+
+      {products.length > 0 && (
+        <ul class="product-grid">
+          {products.map((product) => {
+            const image = product.images.edges[0]?.node;
+            const variant = product.variants.edges[0]?.node;
+            const price = variant
+              ? parseFloat(variant.price.amount).toFixed(2)
+              : null;
+
+            return (
+              <li class="product-card">
+                <div class="product-card__image">
+                  {image ? (
+                    <img
+                      src={image.url}
+                      alt={image.altText ?? product.title}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="product-card__image-placeholder" />
+                  )}
+                </div>
+
+                <div class="product-card__meta">
+                  <h2>{product.title}</h2>
+                  {price && (
+                    <p class="product-card__price">${price}</p>
+                  )}
+                </div>
+
+                {variant?.availableForSale ? (
+                  <button
+                    class="btn product-card__buy"
+                    data-variant-id={variant.id}
+                  >
+                    Buy Now
+                  </button>
+                ) : (
+                  <span class="product-card__sold-out">Sold Out</span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+
+      <div class="shop-page__custom-cta">
+        <p>Looking for something one-of-a-kind?</p>
+        <a href="/custom-order" class="btn">Request a Custom Piece</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline define:vars={{ shopDomain, storefrontToken }}>
+  const ENDPOINT = `https://${shopDomain}/api/2025-01/graphql.json`;
+
+  async function buyNow(variantId) {
+    const mutation = `
+      mutation CartCreate($variantId: ID!) {
+        cartCreate(input: {
+          lines: [{ merchandiseId: $variantId, quantity: 1 }]
+        }) {
+          cart { checkoutUrl }
+          userErrors { message }
+        }
+      }
+    `;
+
+    const res = await fetch(ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': storefrontToken,
+      },
+      body: JSON.stringify({ query: mutation, variables: { variantId } }),
+    });
+
+    const data = await res.json();
+    const checkoutUrl = data?.data?.cartCreate?.cart?.checkoutUrl;
+
+    if (checkoutUrl) {
+      window.location.href = checkoutUrl;
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  }
+
+  document.querySelectorAll('.product-card__buy').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const variantId = btn.dataset.variantId;
+      btn.textContent = 'Loading…';
+      btn.disabled = true;
+      try {
+        await buyNow(variantId);
+      } catch {
+        btn.textContent = 'Buy Now';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  });
+</script>

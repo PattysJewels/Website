@@ -10,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = 'Jewels by Patty — Handcrafted Jewelry, Baltimore MD',
-  description = 'Handcrafted jewelry made with real stones by Patty, based in Baltimore, Maryland. One-of-a-kind pieces made with love. Custom orders welcome.',
+  title = "Patty's Jewels — Handcrafted Jewelry, Baltimore MD",
+  description = "Handcrafted jewelry made with real stones by Patty, based in Baltimore, Maryland. One-of-a-kind pieces made with love. Custom orders welcome.",
   heroImage,
 } = Astro.props;
 
@@ -90,6 +90,7 @@ const pathname = Astro.url.pathname;
     <ul class="nav__links">
       <li><a href="/#about" class:list={[{ 'is-active': pathname === '/' }]}>About</a></li>
       <li><a href="/gallery" class:list={[{ 'is-active': pathname === '/gallery' }]}>Gallery</a></li>
+      <li><a href="/shop" class:list={[{ 'is-active': pathname === '/shop' }]}>Shop</a></li>
       <li><a href="/contact" class:list={[{ 'is-active': pathname === '/contact' }]}>Contact</a></li>
     </ul>
 
@@ -103,6 +104,7 @@ const pathname = Astro.url.pathname;
         <nav class="footer__nav" aria-label="Footer navigation">
           <a href="/#about">About</a>
           <a href="/gallery">Gallery</a>
+          <a href="/shop">Shop</a>
           <a href="/contact">Contact</a>
         </nav>
         <p class="footer__copy">© {currentYear} {site.siteName} · {site.businessLocation}</p>

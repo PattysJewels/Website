@@ -1,7 +1,7 @@
 {
   "eyebrow": "Handcrafted collection",
   "title": "Jewelry Gallery",
-  "intro": "Browse a selection of Patty's handcrafted pieces. Each item is one of a kind — made by hand with real stones and careful attention to detail.",
+  "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. (Placeholder images — real photos coming soon.)",
   "categories": [
     { "slug": "all", "label": "All Pieces" },
     { "slug": "bracelets", "label": "Bracelets" },

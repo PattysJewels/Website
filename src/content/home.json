@@ -2,19 +2,19 @@
   "hero": {
     "image": "/images/hero/diamond_background.png",
     "eyebrow": "Baltimore, Maryland",
-    "title": "Jewels by Patty",
+    "title": "Patty's Jewels",
     "sub": "Jewels made with love",
     "ctaText": "Meet Patty",
     "ctaHref": "#about"
   },
   "about": {
     "image": "/images/placeholders/patty-placeholder.jpg",
-    "imageAlt": "Patty, the maker behind Jewels by Patty — photo coming soon",
+    "imageAlt": "Patty, the maker behind Patty's Jewels — photo coming soon",
     "label": "The maker behind the work",
-    "title": "A craftwoman's heart, a Baltimore spirit",
+    "title": "Where stones meet soul",
     "body": [
-      "Born and raised in the Baltimore area, Patty has spent years perfecting her craft — selecting natural stones by hand, setting each one carefully, and finishing every piece with the kind of attention that only comes from someone who genuinely loves what they do.",
-      "What started as a personal passion has grown into something she's proud to share. Every bracelet, necklace, and ring that leaves her hands is a one-of-a-kind creation — made by one person, with care, for you."
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     ],
     "ctaText": "See her work",
     "ctaHref": "#work"
@@ -22,7 +22,7 @@
   "featured": {
     "label": "Handcrafted pieces",
     "title": "A glimpse of the work",
-    "sub": "Each piece is made entirely by hand — no factory lines, no shortcuts. Just Patty, her materials, and years of practiced skill.",
+    "sub": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "maxItems": 3,
     "ctaText": "View full gallery",
     "ctaHref": "/gallery"
@@ -34,24 +34,24 @@
       {
         "icon": "◈",
         "title": "Natural Stones",
-        "body": "Every piece features genuine, hand-selected gemstones — chosen for their color, character, and quality. No synthetics, no shortcuts."
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
       },
       {
         "icon": "◇",
         "title": "Handset by Patty",
-        "body": "Each stone is placed and finished entirely by hand. There is no assembly line — just one person who cares deeply about the result."
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
       },
       {
         "icon": "✦",
         "title": "Thoughtful Details",
-        "body": "From the spacers to the clasps, every element is chosen to complement the stones and hold the piece together beautifully for years to come."
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
       }
     ]
   },
   "cta": {
     "label": "Custom orders welcome",
     "title": "Interested in a piece of your own?",
-    "sub": "Patty loves working with people on custom orders. Whether you have something specific in mind or just want to start a conversation — reach out. She'd love to hear from you.",
+    "sub": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
     "ctaText": "Get in touch",
     "ctaHref": "/contact"
   }
